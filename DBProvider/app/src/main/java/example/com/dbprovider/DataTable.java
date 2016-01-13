@@ -6,7 +6,7 @@ import android.net.Uri;
  * Created by justin on 1/10/16.
  */
 public class DataTable {
-    public static final String TABLE_NAME = "dataTable";
+    public static final String TABLE_NAME = "data";
 
     public static final Uri DATA_TABLE_URI = Uri.parse("content://" + DataProvider.AUTHORITY + "/" + TABLE_NAME);
 

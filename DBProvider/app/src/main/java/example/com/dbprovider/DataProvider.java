@@ -8,6 +8,9 @@ import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by justin on 1/10/16.
  */
@@ -48,7 +51,6 @@ public class DataProvider extends ContentProvider {
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         String tableName = getTable(uri);
         Cursor cursor = mHelper.query(tableName, projection, selection, selectionArgs, sortOrder);
-        Log.d("justin++", "cursor = " + cursor);
         return cursor;
     }
 
@@ -63,7 +65,6 @@ public class DataProvider extends ContentProvider {
     public Uri insert(Uri uri, ContentValues values) {
         String tableName = getTable(uri);
         long id = mHelper.insert(tableName, values);
-        Log.d("justin++", "id = " + id);
         return id != -1 ? Uri.withAppendedPath(uri, Long.toString(id)) : null;
     }
 
@@ -79,5 +80,12 @@ public class DataProvider extends ContentProvider {
         String tableName = getTable(uri);
         int count = mHelper.update(tableName, values, selection, selectionArgs);
         return count;
+    }
+
+    @Override
+    public int bulkInsert(Uri uri, ContentValues[] values) {
+        String tableName = getTable(uri);
+        List<Long> ids = mHelper.bulkInsert(tableName, Arrays.asList(values));
+        return ids.size();
     }
 }

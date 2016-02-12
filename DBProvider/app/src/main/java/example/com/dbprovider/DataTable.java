@@ -8,7 +8,7 @@ import android.net.Uri;
 public class DataTable {
     public static final String TABLE_NAME = "data";
 
-    public static final Uri DATA_TABLE_URI = Uri.parse("content://" + DataProvider.AUTHORITY + "/" + TABLE_NAME);
+    public static final Uri URI_DATA_TABLE = Uri.parse("content://" + DataProvider.AUTHORITY + "/" + TABLE_NAME);
 
     public static final String KEY_ID = "id";
     public static final String KEY_NAME = "name";
@@ -26,6 +26,8 @@ public class DataTable {
 
     public static final String[] DATA_PROJECTION_A = {
         KEY_ID,
-        KEY_NAME
+        KEY_NAME,
+        KEY_PHONE,
+        KEY_SEX
     };
 }

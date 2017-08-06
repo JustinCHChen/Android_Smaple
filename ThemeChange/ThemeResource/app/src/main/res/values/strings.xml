@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ThemeResource</string>
+
+    <string name="themeTestString">Theme Resource String</string>
+</resources>
